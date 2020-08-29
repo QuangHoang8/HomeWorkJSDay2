@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div><img src="freecodecamp.jpg" alt="" width="800px" /></div>
+    <div>Thiếu 1 bài đã được sự đồng ý của thầy</div>
+    <p id="change">No pain No gain</p>
+    <p>Try harder</p>
+    <p>One more reps</p>
+    <script>
+      //    Bài 2 Có các thuộc tính: name(String), dateOfBirth(String), nation(String), location(object LatLng), sayHello(function)
+      //         Tạo một hàm tính tuổi hiện tại của User
+      //         Tạo một hàm thay đổi vị trí location của người dùng
+      //         Thuộc tính sayHello là một hàm trả về lời chào của người dùng này có tên của họ
+      //             * Lưu ý:
+
+      //         Object LatLng: có 2 trường: Lat(double); Lang(double)
+      //         Mọi người cần đọc thêm về từ khóa this trước khi làm bài tập này: https://www.w3schools.com/js/js_this.asp
+
+      let User = {
+        name: "Luna",
+        dateOfBirth: "10/10/2010",
+        nation: "Dota2",
+        location: {
+          Lat: 15.25,
+          Lang: 80.13,
+        },
+        sayHelo: function () {
+          return "Hi " + this.name;
+        },
+      };
+
+      //   Tạo một hàm tính tuổi hiện tại của User
+      function TinhTuoi() {
+        let d = new Date();
+        return d.getFullYear() - User.dateOfBirth.slice(-4);
+      }
+      console.log(TinhTuoi());
+
+      //   Tạo một hàm thay đổi vị trí location của người dùng
+      function changeLocation(newLat, newLang) {
+        return (User.location = {
+          Lat: newLat,
+          Lang: newLang,
+        });
+      }
+      console.log(changeLocation(1.2, 5.6));
+
+      //   Thuộc tính sayHello là một hàm trả về lời chào của người dùng này có tên của họ
+      console.log(User.sayHelo());
+
+      //   3. Thay đổi chữ và style
+
+      //     Sử dụng hàm getElementById để thay đổi nội dung của thẻ có Id đó
+
+      //     Sử dụng hàm getElementsByTagName để thay đổi màu chữ và thay đổi cỡ chữ
+
+      // Sử dụng hàm getElementById để thay đổi nội dung của thẻ có Id đó
+      let changeContent = document.getElementById("change");
+      changeContent.innerText = "Nothing is impossible";
+
+      //     Sử dụng hàm getElementsByTagName để thay đổi màu chữ và thay đổi cỡ chữ
+      let changeFontColor = document.getElementsByTagName("p");
+      changeFontColor[0].style.color = "green";
+    </script>
+  </body>
+</html>
